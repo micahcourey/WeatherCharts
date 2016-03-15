@@ -6,7 +6,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>Weather Charts</h1>
-        <p>An app to display city forcasts in chart form</p>
+        <p>An app that allows a user to search for cities and then displays city forcasts in chart form</p>
       </div>
     );
   }
