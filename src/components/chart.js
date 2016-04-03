@@ -6,6 +6,10 @@ function average(data) {
   return _.round(_.sum(data)/data.length);
 }
 
+function fahrenheit(temps) {
+  return (temps - 273.15) * 1.8 + 32;
+}
+
 export default (props) => {
   return (
     <div>
@@ -13,7 +17,7 @@ export default (props) => {
         <SparklinesLine color={props.color} />
         <SparklinesReferenceLine type="avg" />
       </Sparklines>
-      <div>{average(props.data)}</div>
+      <div>{average(props.data)} {props.units}</div>
     </div>
   );
 }
