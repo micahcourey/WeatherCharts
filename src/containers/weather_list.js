@@ -11,13 +11,15 @@ class WeatherList extends Component {
           (temp) => (temp - 273.15) * 1.8 + 32);
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
+    const wind = cityData.list.map(weather => weather.wind.speed);
     const lon = cityData.city.coord.lon;
     const lat = cityData.city.coord.lat;
 
     return (
       <tr key={name}>
         <td><GoogleMap lon={lon} lat={lat} /></td>
-        <td><Chart data={temps} color="orange" units="F" /></td>
+        <td><Chart data={temps} color="red" units="F" /></td>
+        <td><Chart data={wind} color="blue" units="mph"/></td>
         <td><Chart data={pressures} color="blue" units="hPa" /></td>
         <td><Chart data={humidities} color="green" units="%" /></td>
       </tr>
@@ -31,7 +33,8 @@ class WeatherList extends Component {
           <tr>
             <th>City</th>
             <th>Temperature</th>
-            <th>Presure</th>
+            <th>Wind Speed</th>
+            <th>Pressure</th>
             <th>Humidity</th>
           </tr>
         </thead>
